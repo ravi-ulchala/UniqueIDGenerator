@@ -1,0 +1,5 @@
+FROM openjdk:11-jre-slim
+WORKDIR /app
+COPY target/Tracking-0.0.jar app.jar
+EXPOSE 6666
+ENTRYPOINT ["java", "-jar", "app.jar"]
