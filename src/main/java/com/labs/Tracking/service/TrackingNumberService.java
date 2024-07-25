@@ -24,6 +24,10 @@ public class TrackingNumberService {
             backoff = @Backoff(delay = 2000))
     public TrackingNumber generateTrackingNumber() {
         TrackingNumber trackingNumber = new TrackingNumber();
+        do {
+            trackingNumber = new TrackingNumber();
+        }
+        while (repository.existsByUniqueValue(trackingNumber.getUniqueValue()));
         return repository.save(trackingNumber);
     }
 }

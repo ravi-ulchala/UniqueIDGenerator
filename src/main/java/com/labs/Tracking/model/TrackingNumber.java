@@ -16,9 +16,11 @@ public class TrackingNumber {
     @Id
     private String id;
     private Instant timestamp;
+    private String uniqueValue;
 
     public TrackingNumber() {
         this.id = UUID.randomUUID().toString();
         this.timestamp = Instant.now();
+        this.uniqueValue = this.id + "-" + this.timestamp.toEpochMilli();
     }
 }
